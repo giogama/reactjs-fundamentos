@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rocketseat - React.js - Propriedades</title>
+</head>
+<body>
+    <div id = "root"></div>
+
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <script type ="text/babel">
+        const buttonVariants = {
+            default: 'bg-gray-500',
+            primary: 'bg-purple-500'
+        }
+        function Button({children, className, variant = 'default', ...props})
+        {
+            return (
+                <button className={`
+                    flex-row text-white p-3 m-1 rounded
+                    ${buttonVariants[variant]}
+                    ${className}
+                    {...props}
+                    `}>
+                    {children}
+                </button>
+            )
+        }
+
+        function App() {
+            return (<main className="p-3 text-blue-600">
+                <Button>Cancelar</Button>
+                <Button variant="primary">Salvar</Button>
+            </main>)
+        }
+        ReactDOM.createRoot(document.getElementById('root')).render(
+            <App />
+        )
+    </script>
+</body>
+</html>
